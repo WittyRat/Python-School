@@ -9,7 +9,7 @@ def Summa():
         totaalne_summa = algne_summa + intress_summa
         print(f"{aasta}.aastal on seis aasta alguses {algne_summa:.2f} seis aasta lõpus {totaalne_summa:.2f}")
         algne_summa = algne_summa + intress_summa
-Summa()
+#Summa()
 
 
 #Leia summa arvudele mingist etteantud vahemikust. Kasutaja sisestab vahemiku alguse ja lõpu. Programm annab vastuseks soovitud vahemikku jäävate arvude summa.
