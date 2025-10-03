@@ -4,7 +4,6 @@
 
 # Kui kaua kulus ligikaudu aega ülesande lahendamiseks?
     #ligikaudu 5 kuni 10 minutit
-
 # Kas ja millised süntaksivead peamiselt tekkisid?
     #ei tekkinud ühtegi viga
 
