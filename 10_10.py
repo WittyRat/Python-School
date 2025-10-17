@@ -82,65 +82,74 @@ def ul_2_1():
 # =====================================================
 # ORIGINAL CODE (COMMENTED OUT)
 # =====================================================
-# def ul_3():
-#     nimi = "Tanel Metshein"
-#     isikukood = str(50412080294)
-#     kuud = ["", "jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"]
-# 
-#     sugu = isikukood[0]
-#     if sugu == "1":
-#         sugu = "mees"
-#         aastaeg_esimene = "18"
-#     elif sugu == "2":
-#         sugu = "naine"
-#         aastaeg_esimene = "18"
-#     elif sugu == "3":
-#         sugu = "mees"
-#         aastaeg_esimene = "19"
-#     elif sugu == "4":
-#         sugu = "naine"
-#         aastaeg_esimene = "19"
-#     elif sugu == "5":
-#         sugu = "mees"
-#         aastaeg_esimene = "20"
-#     elif sugu == "6":
-#         sugu = "naine"
-#         aastaeg_esimene = "20"
-#     else:
-#         print("Vale esimene number isikukoodis")
-#     print("Isiku sugu on", sugu.upper())
-#     
-#     kuu_number = int(isikukood[3:5])
-#     kuu_paev = isikukood[5:7]
-#     print("Sünnipäev on " + kuu_paev + ". " + kuud[kuu_number])
-# 
-#     aastaaeg_teine = isikukood[1:3]
-#     #print(isikukood[1:3])
-#     aastaaeg = aastaeg_esimene + aastaaeg_teine
-#     #print(aastaaeg)
-#     aasta = time.localtime()
-#     vanus = aasta[0] - int(aastaaeg)
-#     #print(vanus)can 
-#     if aasta[1] < kuu_number or (aasta[1] == kuu_number and aasta[2] < int(kuu_paev)):
-#         vanus = vanus - 1
-#         print("Isik on", vanus, "aastat vana.")
-#     else:
-#         print("Isik on", vanus, "aastat vana.")
-# 
-#     #isikukoodi kontroll
-#     array = [int(char) for char in isikukood]
-#     #print(array)
-#     summa = 1*array[0] + 2*array[1] + 3*array[2] + 4*array[3] + 5*array[4] + 6*array[5] + 7*array[6] + 8*array[7] + 9*array[8] + 1*array[9]
-#     #print(summa)
-#     jaak = summa % 11
-#     #print (jaak)
-#     #print(isikukood[10])
-#     if str(jaak) == str(isikukood[10]):
-#         print("Isikukood on korrektne.")
+def ul_3():
+    nimi = "Tanel Metshein"
+    isikukood = str(50412080294)
+    kuud = ["", "jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"]
+
+    sugu = isikukood[0]
+    if sugu == "1":
+        sugu = "mees"
+        aastaeg_esimene = "18"
+    elif sugu == "2":
+        sugu = "naine"
+        aastaeg_esimene = "18"
+    elif sugu == "3":
+        sugu = "mees"
+        aastaeg_esimene = "19"
+    elif sugu == "4":
+        sugu = "naine"
+        aastaeg_esimene = "19"
+    elif sugu == "5":
+        sugu = "mees"
+        aastaeg_esimene = "20"
+    elif sugu == "6":
+        sugu = "naine"
+        aastaeg_esimene = "20"
+    else:
+        print("Vale esimene number isikukoodis")
+    print("Isiku sugu on", sugu.upper())
+    
+    kuu_number = int(isikukood[3:5])
+    kuu_paev = isikukood[5:7]
+    print("Sünnipäev on " + kuu_paev + ". " + kuud[kuu_number])
+
+    aastaaeg_teine = isikukood[1:3]
+    #print(isikukood[1:3])
+    aastaaeg = aastaeg_esimene + aastaaeg_teine
+    #print(aastaaeg)
+    aasta = time.localtime()
+    vanus = aasta[0] - int(aastaaeg)
+    #print(vanus)can 
+    if aasta[1] < kuu_number or (aasta[1] == kuu_number and aasta[2] < int(kuu_paev)):
+        vanus = vanus - 1
+        print("Isik on", vanus, "aastat vana.")
+    else:
+        print("Isik on", vanus, "aastat vana.")
+
+    #isikukoodi kontroll
+    array = [int(char) for char in isikukood]
+    #print(array)
+    summa = 1*array[0] + 2*array[1] + 3*array[2] + 4*array[3] + 5*array[4] + 6*array[5] + 7*array[6] + 8*array[7] + 9*array[8] + 1*array[9]
+    #print(summa)
+    jaak = summa % 11
+    if jaak > 9:
+        summa_2 = 3*array[0] + 4*array[1] + 5*array[2] + 6*array[3] + 7*array[4] + 8*array[5] + 9*array[6] + 1*array[7] + 2*array[8] + 3*array[9]
+        jaak = summa_2 % 11
+#        print("2. arvutuskäik")
+#    else:
+#        print("1. arvutuskäik")
+    #print (jaak)
+    #print(isikukood[10])
+    if str(jaak) == str(isikukood[10]):
+        print("Isikukood on korrektne.")
+
+
 
 # =====================================================
 # BEAUTIFIED VERSION
 # =====================================================
+
 def analyze_isikukood():
     """
     Analüüsib Eesti isikukoodi ja leiab:
@@ -232,7 +241,7 @@ def analyze_isikukood():
 
 
 # Main function that calls the beautified version
-def ul_3():
+def ul_3_b():
     """Legacy function name - calls the beautified version"""
     analyze_isikukood()
 
