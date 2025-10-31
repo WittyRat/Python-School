@@ -1,6 +1,6 @@
 import random
 
-number_list = [random.randint(0, 10) for _ in range(100)]
+number_list = [random.randint(0, 100) for _ in range(10000)]
 #number_list.sort()
 #number_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 #number_list = [64, 34, 25, 12, 22, 99, 90]
@@ -79,12 +79,13 @@ def binary_search():
 
 
 #print(len(number_list))
-counts = {}
-for i in number_list:
-    counts[i] = counts.get(i, 0) + 1
+def list_count():
+    counts = {}
+    for i in number_list:
+        counts[i] = counts.get(i, 0) + 1
 
-for number_list in sorted(counts):
-    print("Arvu", number_list, "tuli", counts[number_list], "korda")
+    for number_list in sorted(counts):
+        print("Arvu", number_list, "tuli", counts[number_list], "korda")
 
 
 #print(counts[1])
