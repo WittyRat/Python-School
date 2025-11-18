@@ -1,5 +1,5 @@
 import unittest
-from assertions17 import reverse_string, capitalize_string, is_capitalized
+from stringUtils17 import reverse_string, capitalize_string, is_capitalized
 
 class TestStringUtils(unittest.TestCase):
 
