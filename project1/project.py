@@ -59,12 +59,7 @@ Convert using Python’s datetime if needed.
 
 import requests
 
-#stock = fetch_price("MSFT")
-#print(stock[1])
-#print(stock["c"])
-
-
-#print(buy_stock(1000, "AAPL"))
+from pathlib import Path
 
 
 
@@ -76,7 +71,7 @@ class StockMarketGame:
         self.transaction_log = []
 
     def fetch_price(self, symbol):
-        API_KEY = ""
+        API_KEY = Path("project1/apikey.txt").read_text(encoding="utf-8").strip()
         URL = f"https://finnhub.io/api/v1/quote?symbol={symbol}&token={API_KEY}"
         try:
             response = requests.get(URL)
