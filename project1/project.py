@@ -76,7 +76,7 @@ class StockMarketGame:
         self.transaction_log = []
 
     def fetch_price(self, symbol):
-        API_KEY = "d4f0i7hr01qkcvvfv890d4f0i7hr01qkcvvfv89g"
+        API_KEY = ""
         URL = f"https://finnhub.io/api/v1/quote?symbol={symbol}&token={API_KEY}"
         try:
             response = requests.get(URL)
