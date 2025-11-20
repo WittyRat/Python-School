@@ -80,6 +80,13 @@ class StockMarketGame:
         except Exception as e:
             print("Network/API error:", e)
             return None
+    
+    def print_info(self, symbol):
+        print(f"The current price is {self.fetch_price(symbol)["c"]}$ per share")
+        print(f"{symbol} price has moved today {self.fetch_price(symbol)["d"]}$ ({self.fetch_price(symbol)["dp"]}%)")
+        print(f"Highest price of the day: {self.fetch_price(symbol)["h"]}$")
+        print(f"Lowest price of the day: {self.fetch_price(symbol)["l"]}$")
+
 
 
     def buy_stock(self, money_to_be_used, symbol):
@@ -111,14 +118,54 @@ class StockMarketGame:
         pass
 
     def view_portfolio(self):
-        pass
+        print(self.portfolio)
+        input()
+
+def random_stocks():
+    import random
+    with open("project1/stockList.csv") as f:
+        contents = f.read()
+    stocks = contents.split(",")
+    [print(f"{random.choice(stocks)}\t", end="") for i in range(5)] # add current prices to stocks
+
+def main():
+    while True:
+        random_stocks()
+        print("\n1. View stock info")
+        print("2. Buy Stock")
+        print("3. Sell Stock")
+        print("4. View portfolio")
+        print("5. View balance")
+        print("6. Exit")
+
+        choice = input("Choose an option: ")
+        if choice == "1":
+            symbol = input("What is the symbol of the stocks you want information on? ")
+            game.print_info(symbol)
+            
+        elif choice == "2":
+            symbol = input("Enter the symbol of the stock you want to buy: ")
+            amount = input("Enter the amount of money you want to use: ")
+            game.buy_stock(float(amount), symbol)
+        elif choice == "3":
+            pass
+        elif choice == "4":
+            game.view_portfolio()    
+        elif choice == "5":
+            print(game.balance)
+        else:
+            break
 
 
-game = StockMarketGame()
-game.buy_stock(1000, "AAPL")
-print(game.balance)
-print(game.portfolio)
-print(game.transaction_log)
+
+if __name__ == "__main__":
+    game = StockMarketGame()
+    main()
+#game = StockMarketGame()
+#game.buy_stock(1000, "AAPL")
+#print(game.balance)
+#game.view_portfolio()
+#print(game.transaction_log)
 
 
 
