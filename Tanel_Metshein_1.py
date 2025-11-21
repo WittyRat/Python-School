@@ -1,30 +1,26 @@
-#Tanel_Metshein_1.py
-#jaak = 241220 % 7
-#print(jaak)
+#Tanel Metshein
+#print((241220 % 6)+1) = 3
 
-# Kui kaua kulus ligikaudu aega ülesande lahendamiseks?
-    #ligikaudu 5 kuni 10 minutit
-# Kas ja millised süntaksivead peamiselt tekkisid?
-    #ei tekkinud ühtegi viga
+"""Tekstifailis kt_2.txt on temperatuurid ja kuupäevad, millal selline temperatuur esines. Täpsemalt on tekstifaili esimesel real päevade arv ning igal järgneval real on kaks tühikuga eraldatud täisarvu: kuupäev ja temperatuur. Andmefail võib erineda näitest (nt sisaldada vähem ridu, esimene kirje ei pruugi olla kuupäeva 1 kohta jms).
+Kirjutada programm nende päevade keskmise temperatuuri leidmiseks, kus kraadiklaas näitas külmakraade. Külmakraadide puudumisel väljastada sobiv teade."""
 
-# Kas tekkis erineid ehk täitmisaegseid vigu?
-    #ei tekkinud ühtegi viga
+with open("kt_2.txt", "r") as f:
+    counter = 0
+    total_temp = 0
+    data = f.readlines()
+    for i in range(1, len(data)):
+        if int(data[i].split()[1]) < 0:
+            counter += 1
+            total_temp += int(data[i].split()[1])
+#print(counter)
+#print(total_temp)
+if counter == 0:
+    print("Ei olnud ühtegi külmakraadidega päeva kuu jooksul")
+else:
+    avg_cold_temp = total_temp/counter
+    print(f"Külmapäevade keskmine temperatuur oli {round(avg_cold_temp)} C")
 
-# Kas programmis oli ka loogikavigu? Kuidas need avastasid ja parandasid?
-    #ei tekkinud ühtegi viga
 
 
 
-#Programmi ülesandeks on tuvastada paarisarvud ja leida nende summa. Programm küsib kasutajalt, mitu täisarvu ta sisestada soovib. Seejärel laseb sisestada arve, leiab summat ja trükib iga paarisarvu korral ekraanile sobiliku teate. Paarisarvude summa trükitakse lõpuks üks kord vastusena välja. Paaritute arvude peale ei regeeri programm mitte mingil viisil.
 
-kordus = int(input("Mitu täisarvu soovid sisestada? "))
-taisarv_summa = 0
-
-for arv in range(kordus):
-    taisarv = int(input("Sisesta täisarv: "))
-    if taisarv % 2 == 0:
-        print(f"{taisarv} on paaris arv")
-        taisarv_summa = taisarv_summa + taisarv
-    else:
-        pass
-print("Paarisarvude summa on: ", taisarv_summa)

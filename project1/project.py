@@ -141,7 +141,7 @@ def main():
         choice = input("Choose an option: ")
         if choice == "1":
             symbol = input("What is the symbol of the stocks you want information on? ")
-            game.print_info(symbol)
+            game.print_info(symbol) #WHEN INFO IS PRINTED DONT LEAVE THIS AND LET USER ASK FOR INFO AGAIN OR LEAVE THIS CHOICE
             
         elif choice == "2":
             symbol = input("Enter the symbol of the stock you want to buy: ")
