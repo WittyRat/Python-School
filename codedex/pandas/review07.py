@@ -48,3 +48,6 @@ teslas = df[
     (df["Manufacturer"] == "Tesla")
 ]
 print(teslas)
+
+#max_df = df.max()[2]
+#print(max_df)
